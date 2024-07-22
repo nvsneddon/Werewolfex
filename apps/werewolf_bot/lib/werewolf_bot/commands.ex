@@ -10,8 +10,8 @@ defmodule WerewolfBot.Commands do
       }
 
     case Api.create_guild_application_command(681_696_629_224_505_376, command) do
-      {:ok, response} -> IO.inspect(response, label: "Command Registered Successfully")
-      {:error, error} -> IO.inspect(error, label: "Error Registering Command")
+      {:ok, response} -> IO.inspect(response.name, label: "Command Registered Successfully")
+      {:error, _} -> IO.puts("Error Registering Command")
     end
 
     # Use Api.create_global_application_command(command) if you want to register the command globally.

@@ -16,7 +16,7 @@ defmodule WerewolfCore do
     :world
   end
 
-  def greet do
-    "Hello from WerewolfCore!"
+  def greet(greeting) do
+    "#{greeting} from WerewolfCore!"
   end
 end

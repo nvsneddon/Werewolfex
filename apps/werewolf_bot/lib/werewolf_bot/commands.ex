@@ -1,6 +1,6 @@
 defmodule WerewolfBot.Commands do
   alias Nostrum.Api
-  alias WerewolfBot.Commands.OptionTypes
+  alias Nostrum.Constants.ApplicationCommandOptionType
 
   @guild_id 681_696_629_224_505_376
 
@@ -11,7 +11,7 @@ defmodule WerewolfBot.Commands do
         description: "Greet the bot",
         options: [
           %{
-            type: OptionTypes.string(),
+            type: ApplicationCommandOptionType.string(),
             name: "greeting",
             description: "The greeting you want to give",
             required: true
@@ -25,7 +25,7 @@ defmodule WerewolfBot.Commands do
 
     case Api.create_guild_application_command(@guild_id, command) do
       {:ok, response} -> IO.inspect(response.name, label: "Command Registered Successfully")
-      {:error, thing} -> IO.inspect(thing, label: "Error registering command")
+      {:error, response} -> IO.inspect(response, label: "Error registering command")
     end
 
     # Use Api.create_global_application_command(command) if you want to register the command globally.

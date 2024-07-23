@@ -3,6 +3,6 @@ defmodule WerewolfBotTest do
   doctest WerewolfBot
 
   test "gets ready" do
-    assert 1==1
+    assert 1 == 1
   end
 end

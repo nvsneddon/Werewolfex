@@ -1,11 +1,9 @@
 import Config
 
-env_data = Dotenv.load()
-token = env_data.values["DISCORD_BOT_TOKEN"]
+case config_env() do
+  :dev -> env_data = Dotenv.load(".dev.env")
+    token = env_data.values["DISCORD_BOT_TOKEN"]
 
-# config :nostrum, token: System.get_env("DISCORD_BOT_TOKEN"), ffmpeg: false
-config :nostrum, token: token, ffmpeg: false
-
-config :logger, :console,
-  format: "$time $metadata[$level] $message\n",
-  level: :info
+    config :nostrum, token: token, ffmpeg: false
+  _ -> :nothing
+end

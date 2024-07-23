@@ -7,7 +7,7 @@ defmodule WerewolfBot.Supervisor do
 
   @impl true
   def init(_init_arg) do
-    children = [WerewolfBot]
+    children = [] ++ if Mix.env() != :test, do: [WerewolfBot], else: []
 
     Supervisor.init(children, strategy: :one_for_one)
   end

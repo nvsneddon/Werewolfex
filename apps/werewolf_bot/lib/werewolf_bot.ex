@@ -19,7 +19,7 @@ defmodule WerewolfBot do
     IO.puts("Bot is ready")
   end
 
-  def greet_response([%{name: "greeting", value: greeting}]) do
+  defp greet_response([%{name: "greeting", value: greeting}]) do
     %{
       # ChannelMessageWithSource
       type: 4,

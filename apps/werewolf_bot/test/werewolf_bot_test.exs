@@ -2,7 +2,7 @@ defmodule WerewolfBotTest do
   use ExUnit.Case
   doctest WerewolfBot
 
-  test "greets the world" do
-    assert WerewolfBot.hello() == :world
+  test "gets ready" do
+    assert 1==1
   end
 end

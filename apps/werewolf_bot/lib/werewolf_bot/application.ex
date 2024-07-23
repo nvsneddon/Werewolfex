@@ -4,7 +4,6 @@ defmodule WerewolfBot.Application do
   def start(_type, _args) do
     children = [] ++ if Mix.env() != :test, do: [WerewolfBot], else: []
 
-    opts = [strategy: :one_for_one, name: WerewolfBot.Supervisor]
-    Supervisor.start_link(children, opts)
+    Supervisor.start_link(children, strategy: :one_for_one)
   end
 end
